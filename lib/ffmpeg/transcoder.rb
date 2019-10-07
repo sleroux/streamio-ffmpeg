@@ -34,7 +34,7 @@ module FFMPEG
         input_options.each { |k, v| iopts += ['-' + k.to_s, v] }
       end
 
-      @command = [FFMPEG.ffmpeg_binary, '-protocol_whitelist file,https,tls,tcp', '-y', *iopts, '-i', @input, *@raw_options.to_a, @output_file]
+      @command = [FFMPEG.ffmpeg_binary, '-protocol_whitelist', 'file,https,tls,tcp', '-y', *iopts, '-i', @input, *@raw_options.to_a, @output_file]
     end
 
     def run(&block)
